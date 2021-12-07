@@ -1,0 +1,66 @@
+/api/v1/compaigns:
+  get:
+    summary: List all compaigns
+    tags: [Compaign]
+    description: List all compaigns.
+    consumes: application/json
+    produces: application/json
+    responses:
+      200:
+        description: Compaign.
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Compaign"
+  post:
+    summary: Add new compaign
+    tags: [Compaign]
+    description: Add new compaign.
+    consumes: application/json
+    produces: application/json
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                required: true
+                type: string
+              startDate:
+                required: true
+                type: integer
+              endDate:
+                required: true
+                type: integer
+              targetImpressions:
+                required: true
+                type: integer
+    responses:
+      200:
+        description: Compaign.
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Compaign"
+/api/v1/compaigns/{id}:
+  get:
+    summary: Get compaign
+    tags: [Compaign]
+    description: Get compaign.
+    consumes: application/json
+    produces: application/json
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+    responses:
+      200:
+        description: Compaign.
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Compaign"

@@ -1,0 +1,57 @@
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+          description: ID of the use
+          example: 'xxxx-xxxx-xxxx'
+        first_name:
+          type: string
+          description: First name of the use
+          example: "Herman"
+        second_name:
+          type: string
+          description: First name of the use
+          example: "Herman"
+        email:
+          type: string
+          description: Email of the use
+          example: "test@email.com"
+        password:
+          type: string
+          description: Password of the use
+          example: "**********"
+        data:
+          $ref: '#/components/schemas/User'
+    Compaign:
+      type: object
+      properties:
+        id:
+          type: string
+          description: ID of the compaign
+          example: 'thao---a52de344-ffb0-41db-a4b8-efdd4589976c'
+        startDate:
+          type: integer
+          description: First name of the use
+          example: "1636416000000"
+        endDate:
+          type: integer
+          description: First name of the use
+          example: "1636761600000"
+        targetImpressions:
+          type: integer
+          description: First name of the use
+          example: "6543"
+        deliveredImpressions:
+          type: integer
+          description: First name of the use
+          example: "6542"
+        data:
+          $ref: '#/components/schemas/User'

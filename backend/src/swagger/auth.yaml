@@ -1,0 +1,80 @@
+/api/v1/register:
+  post:
+    summary: Register New User
+    tags: [Authentication]
+    description: Register New User.
+    consumes: application/json
+    produces: application/json
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              first_name:
+                required: true
+                type: string
+              last_name:
+                required: true
+                type: string
+              email:
+                required: true
+                type: string
+              password:
+                required: true
+                type: string
+    responses:
+      200:
+        description: User object with access token
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/User"
+/api/v1/login:
+  post:
+    summary: Login User
+    tags: [Authentication]
+    description: Login User.
+    consumes: application/json
+    produces: application/json
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              email:
+                required: true
+                type: string
+              password:
+                required: true
+                type: string
+    responses:
+      200:
+        description: User object with access token
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/User"
+/api/v1/profile/{id}:
+  get:
+    summary: Get Logged In User
+    tags: [Authentication]
+    description: Get Logged In User Info with token.
+    consumes: application/json
+    produces: application/json
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+    responses:
+      200:
+        description: User object
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/User"
